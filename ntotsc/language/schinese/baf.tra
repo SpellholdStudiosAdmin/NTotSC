@@ -1,5 +1,5 @@
 //AR9PBA.baf
-@0    = ~在回去的路上,你发现了一个小岛,尽管上岸为旅途补给可能会引来很多麻烦。这个岛屿看起来有人居住。~
+@0    = ~在回去的路上，你发现了一个小岛，尽管上岸为旅途补给可能会引来很多麻烦。这个岛屿看起来有人居住。~
 
 //CUTREST.baf
 @10   = ~你必须休息。~
@@ -14,7 +14,7 @@
 /* new for v2.0 */
 
 //ar30pb.baf
-@40   = ~保卫要塞!~
+@40   = ~保卫要塞！~
 
 //nttr51pb.baf (trigger before dungeon in Firewine Bridge is opened by Charleston Nib's Scroll
 @50  = ~卷轴保护你免受封印入口的魔法。你现在可以进去了。~

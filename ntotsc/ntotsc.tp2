@@ -9,7 +9,7 @@
 
 BACKUP ~ntotsc/backup~
 AUTHOR ~http://www.shsforums.net/forum/202-dsotsc-bgt/~
-VERSION ~5.0.0~ 
+VERSION ~5.0.0~
 README ~ntotsc/docs/[%LANGUAGE%]ReadMe-NTotSC.txt~ ~ntotsc/docs/ReadMe-NTotSC.txt~
 AUTO_TRA ~ntotsc/language/%s/D~
 ASK_EVERY_COMPONENT
@@ -53,7 +53,7 @@ ALWAYS
 		OUTER_SPRINT OR_SpellCastOnMe ~OR(8)~
 		OUTER_SPRINT SpellCastOnMe_WIZARD_REMOVE_MAGIC ~~
 		OUTER_SPRINT RESTCAMP ~RESTCAMP~
-	END 
+	END
 	ACTION_IF GAME_IS ~eet~ BEGIN
 		INCLUDE ~EET/other/cpmvars/eet_cpmvars.tpa~
 		OUTER_SPRINT platform ~eet~
@@ -67,7 +67,7 @@ ALWAYS
 		OUTER_SPRINT POTN55 ~POTN55~
 		OUTER_SPRINT SPIN996 ~SPIN996~ //TANARI_DEATH_GAZE
 		OUTER_SPRINT OR_SpellCastOnMe ~OR(9)~
-		OUTER_SPRINT SpellCastOnMe_WIZARD_REMOVE_MAGIC ~SpellCastOnMe([PC],WIZARD_REMOVE_MAGIC)~ 
+		OUTER_SPRINT SpellCastOnMe_WIZARD_REMOVE_MAGIC ~SpellCastOnMe([PC],WIZARD_REMOVE_MAGIC)~
 		OUTER_SPRINT RESTCAMP ~REST~
 	END
 	ACTION_IF GAME_IS ~bgee~ BEGIN
@@ -111,7 +111,7 @@ ALWAYS
 				reload_array = charsetsReloadArray
 				noconvert_array = charsetsNoConvertArray
 			END
-			
+
 		LOAD_TRA ~ntotsc/language/%LANGUAGE%/setup-ee.tra~
 	END
 	/* consider installed DSotSC - BGT/EET vs. BG:EE versions */
@@ -120,15 +120,15 @@ ALWAYS
 		OUTER_SPRINT DSAMUL08 ~DSAMUL08~
 		OUTER_SPRINT DSAROW50 ~DSAROW50~
 		OUTER_SPRINT DSBOLT01 ~DSBOLT01~
-		OUTER_SPRINT DSWAND01 ~DSWAND01~ 
+		OUTER_SPRINT DSWAND01 ~DSWAND01~
 		OUTER_SPRINT DSWAND03 ~DSWAND03~
 		OUTER_SPRINT SCRLDS41 ~SCRLDS41~
 		OUTER_SPRINT SCRLDS32 ~SCRLDS32~
 		OUTER_SPRINT SCRLDS51 ~SCRLDS51~
 		OUTER_SPRINT SCRLDS62 ~SCRLDS62~
-		OUTER_SPRINT SCRLDS21 ~SCRLDS21~ 
+		OUTER_SPRINT SCRLDS21 ~SCRLDS21~
 		OUTER_SPRINT SCRLDS22 ~SCRLDS22~
-		OUTER_SPRINT SCRLDS74 ~SCRLDS74~ 
+		OUTER_SPRINT SCRLDS74 ~SCRLDS74~
 	END
 
 	ACTION_IF MOD_IS_INSTALLED ~ds/setup-ds.TP2~ "0" BEGIN
@@ -137,15 +137,15 @@ ALWAYS
 		OUTER_SPRINT DSAROW50 ~AROWDS01~
 		OUTER_SPRINT DSBOLT01 ~BOLTDS01~
 		OUTER_SPRINT DSPOTN01 ~POTN50~
-		OUTER_SPRINT DSWAND01 ~WANDS01~ 
+		OUTER_SPRINT DSWAND01 ~WANDS01~
 		OUTER_SPRINT DSWAND03 ~WAND50~
 		OUTER_SPRINT SCRLDS41 ~MAGE417~
 		OUTER_SPRINT SCRLDS32 ~MAGE322~
 		OUTER_SPRINT SCRLDS51 ~MAGE518~
 		OUTER_SPRINT SCRLDS62 ~MAGE607~
-		OUTER_SPRINT SCRLDS21 ~MAGE222~ 
+		OUTER_SPRINT SCRLDS21 ~MAGE222~
 		OUTER_SPRINT SCRLDS22 ~MAGE221~
-		OUTER_SPRINT SCRLDS74 ~MAGE703~ 
+		OUTER_SPRINT SCRLDS74 ~MAGE703~
 	END
 	ACTION_IF NOT MOD_IS_INSTALLED ~ds/setup-ds.TP2~ "0" BEGIN
 		OUTER_SPRINT DSPOTN01 ~DSPOTN01~
@@ -411,7 +411,7 @@ COPY ~ntotsc/base/spl/ntswd5xp.spl~ ~override~
    LPF ALTER_SPELL_EFFECT
    INT_VAR
      match_opcode  = 139   // Display String
-     parameter1    = RESOLVE_STR_REF(@539)  // 
+     parameter1    = RESOLVE_STR_REF(@539)  //
    END
 
 COPY ~ntotsc/base/spl/nostring~ ~override~
@@ -963,7 +963,7 @@ COPY ~ntotsc/base/cre/nteldod.cre~ ~override~
 	~ntotsc/base/cre/nteldod1.cre~ ~override~
 	SAY NAME1 @247
 	SAY NAME2 @247
-  ADD_CRE_ITEM ~NTKEYPB5~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~ 
+  ADD_CRE_ITEM ~NTKEYPB5~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
 
 
 
@@ -1153,7 +1153,7 @@ COPY ~ntotsc/base/cre/ntrudier.cre~ ~override~
 COPY ~ntotsc/base/cre/ntsalmi1.cre~ ~override~
 	SAY NAME1 @348
 	SAY NAME2 @348
-  ADD_CRE_ITEM ~NTKEYPB6~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~ 
+  ADD_CRE_ITEM ~NTKEYPB6~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
 
 COPY ~ntotsc/base/cre/ntsalmi2.cre~ ~override~
 	SAY NAME1 @349
@@ -1271,11 +1271,10 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~ORC02.cre~ THEN BEGIN
 	SAY NAME2 @522
 END
 
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~ORC04.cre~ THEN BEGIN
-  COPY ~ntotsc/bgee/ORC04.cre~ ~override~
+COPY ~ntotsc/bgee/ORC04.cre~ ~override/ntorc04.cre~
 	SAY NAME1 @524
 	SAY NAME2 @524
-END
+	WRITE_BYTE 0x234 10 // set level
 
 ACTION_IF NOT FILE_EXISTS_IN_GAME ~ORC05.cre~ THEN BEGIN
   COPY ~ntotsc/bgee/ORC05.cre~ ~override~
@@ -1333,6 +1332,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~ORC03.cre~ THEN BEGIN
 	ADD_CRE_ITEM ~NTROBE02~ #0 #0 #0 ~UNSTEALABLE~ ~ARMOR~
 	REMOVE_CRE_ITEM ~LEAT04~ //BGT
 	REMOVE_CRE_ITEM ~LEAT10~ //BG:EE
+	WRITE_BYTE 0x234 8 //set level
 END ELSE BEGIN
   COPY_EXISTING ~orc03.cre~ ~override/ntorc03.cre~
 	SAY NAME1 @523
@@ -1345,6 +1345,7 @@ END ELSE BEGIN
 	ADD_CRE_ITEM ~NTROBE02~ #0 #0 #0 ~UNSTEALABLE~ ~ARMOR~
 	REMOVE_CRE_ITEM ~LEAT04~ //BGT
 	REMOVE_CRE_ITEM ~LEAT10~ //BG:EE
+	WRITE_BYTE 0x234 8 //set level
 END
 
 COPY_EXISTING ~ntorc03.cre~ ~override/ntorcs3.cre~
@@ -1368,7 +1369,7 @@ COPY_EXISTING ~iron6.cre~ ~override~
 
 ACTION_IF GAME_IS ~bgee~ BEGIN
   COPY_EXISTING ~LAMALH.cre~ ~override~
-	  WRITE_ASCII DEATHVAR ~LAMALH~ #32   
+	  WRITE_ASCII DEATHVAR ~LAMALH~ #32
 END
 
 COPY_EXISTING ~mtowbe_c.cre~ ~override~
@@ -1399,7 +1400,7 @@ COPY_EXISTING ~wenric.cre~ ~override~
 COPY ~ntotsc/base/cre/nostring~ ~override~
 
 COPY_EXISTING ~ntavery.cre~ ~override~
-  ADD_CRE_ITEM ~NTPBLET7~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~ 
+  ADD_CRE_ITEM ~NTPBLET7~ #0 #0 #0 ~UNSTEALABLE~ ~INV1~
 
 ACTION_IF GAME_IS ~bgee~ BEGIN
   COPY_EXISTING ~ntsalmi3.cre~ ~override~
@@ -1432,7 +1433,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~dsgbbow.itm~ BEGIN
   COMPILE EVALUATE_BUFFER ~ntotsc/dsotsc/orig_ressources/dsfeydo.d~
   COMPILE EVALUATE_BUFFER ~ntotsc/dsotsc/orig_ressources/dsfeydo.baf~
   COMPILE EVALUATE_BUFFER ~ntotsc/dsotsc/orig_ressources/dssylvan.baf~
- 
+
   COPY ~ntotsc/dsotsc/orig_ressources/dsgbbow.bam~ ~override~
 
   COPY ~ntotsc/dsotsc/orig_ressources/dsgbbow.itm~ ~override~
@@ -2114,7 +2115,7 @@ COPY_EXISTING ~shaell.dlg~ ~override~
     strref
 END
 
-    SET shaella_journal = strref 
+    SET shaella_journal = strref
   OUTER_SPRINT ~shaella_journal_solved~ ~@10109~
   OUTER_SPRINT ~number_sign~ ~~
 END
@@ -2175,7 +2176,7 @@ ACTION_IF GAME_IS ~bgt~ BEGIN
 ADD_TRANS_ACTION CHARLE BEGIN 21 END BEGIN END
 ~SetGlobal("NTCharlesTalk","%ArchaeologicalSite_Tomb%",1)~
 >>>>>>>>
-  
+
 COMPILE EVALUATE_BUFFER ~...inlined/charle_bgt.d~
 
 END
@@ -2187,7 +2188,7 @@ REPLACE_TRANS_ACTION CHARLE BEGIN 21 END BEGIN 0 1 3 END ~EscapeArea()~ ~Dialogu
 /* In BG:EE+EET, the PC can attack Charleston so we add the scroll to his inventory */
 ADD_TRANS_ACTION CHARLE BEGIN 21 END BEGIN 2 END ~GiveItemCreate("NTPBlet1",Myself,0,0,0)~
 >>>>>>>>
-  
+
 COMPILE EVALUATE_BUFFER ~...inlined/charle_ee.d~
 
 END
@@ -2716,7 +2717,7 @@ ACTION_IF GAME_IS ~bgt~ BEGIN
 	~ntwill4.cre~ ~override~
 	~ntwill6.cre~ ~override~
 	WRITE_ASCII 0x3c ~WILLYM~ #8
-END	
+END
 
 COPY_EXISTING ~golinv.cre~ ~override~
 	WRITE_ASCII SCRIPT_OVERRIDE ~INITGOLV~ #8 // Override Script was INITDLG
@@ -2888,7 +2889,7 @@ DESIGNATED 13 LABEL ~NTotSC_RemoveShamanCloaks_Completely~
 REQUIRE_COMPONENT ~ntotsc/NTotSC.tp2~ 0 @531
 
 COPY_EXISTING ~NTORC03.cre~ ~override~
-	REMOVE_CRE_ITEM ~NTROBE02~ 
+	REMOVE_CRE_ITEM ~NTROBE02~
 	ADD_CRE_ITEM ~LEAT04~ #0 #0 #0 ~UNSTEALABLE~ ~ARMOR~
 
 BEGIN @573 /* ~Make Cloaks Undroppable~	*/
@@ -2916,5 +2917,3 @@ GROUP @566 /* ~Quests and Encounters~ */
 DESIGNATED 16 LABEL ~NTotSC_SpellScrolls_Original~
 
 INCLUDE ~ntotsc/spells/setup_spells_original.tpa~
-
-
